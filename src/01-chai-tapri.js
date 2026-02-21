@@ -28,4 +28,16 @@
  */
 export function chaiTapriRevenue(customers) {
   // Your code here
+  if (customers <= 0 || customers === undefined || !Number.isInteger(customers)) return { "totalChai": 0, "totalRevenue": 0 }
+  let adrakCount = 0;
+  let cuttingCount = 0;
+  for (let i = 1; i <= customers; i++) {
+    if (i % 3 === 0) {
+      adrakCount++
+    } else {
+      cuttingCount++
+    }
+  }
+  let totalRevenue = (adrakCount * 15) + (cuttingCount * 10)
+  return { "totalChai": customers, "totalRevenue": totalRevenue }
 }
